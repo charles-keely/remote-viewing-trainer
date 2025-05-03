@@ -17,6 +17,30 @@ Remote viewing is a protocol for perceiving and describing distant or unseen tar
 - PostgreSQL 16+
 - OpenAI API key
 
+## Dependencies
+
+This project uses Poetry for dependency management. Key dependencies include:
+
+- **FastAPI**: Web framework for the API server
+- **SQLAlchemy**: SQL toolkit and ORM
+- **Alembic**: Database migration tool
+- **OpenAI**: Client for OpenAI API (GPT-4 Vision)
+- **Pillow**: Python Imaging Library for image processing
+- **Typer/Rich**: CLI interface and formatting
+- **httpx**: Asynchronous HTTP client
+- **numpy**: Numerical computing for embedding comparisons
+
+Development dependencies:
+- **black/ruff/isort**: Code formatting and linting
+- **pytest**: Testing framework
+
+For a complete list with versions, see the `pyproject.toml` file.
+
+For users who prefer pip over Poetry, a `requirements.txt` file is also provided:
+```bash
+pip install -r requirements.txt
+```
+
 ## Quick Setup
 
 For a streamlined setup experience, run our automated setup script:
