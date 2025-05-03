@@ -55,7 +55,7 @@ def describe_image(path: str) -> dict:
         
         # Call the OpenAI API
         r = openai.chat.completions.create(
-            model="gpt-4-vision-preview",  # Updated to available model
+            model="gpt-4o",
             messages=messages,
             max_tokens=256
         )

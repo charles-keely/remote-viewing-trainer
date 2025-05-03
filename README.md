@@ -158,6 +158,18 @@ The scoring matrix includes:
 - Sensory impressions
 - Overall similarity score
 
+### Enhanced Scoring Mechanism
+
+The Remote Viewing app now includes an enhanced scoring mechanism that provides better differentiation between the various aspects of an image:
+
+1. **Category-specific evaluation**: Each category (color, shape, concept, sensory) is evaluated independently using specialized embeddings that focus on that particular aspect of the image.
+
+2. **Threshold-based scoring**: A minimum similarity threshold is applied to ensure that casual matches don't receive undeserved points, making the scoring more discriminating.
+
+3. **Improved differentiation**: The scoring system now better distinguishes between notes that accurately describe different aspects of the image, providing more meaningful feedback on your remote viewing accuracy.
+
+4. **Comprehensive testing**: The scoring system has been thoroughly tested with a variety of scenarios to ensure it properly rewards accurate descriptions and penalizes inaccurate ones.
+
 ## Troubleshooting
 
 ### PostgreSQL Not Found
