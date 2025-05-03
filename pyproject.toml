@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "rv-cli"
+version = "0.1.0"
+description = "CLI-only CRV trainer"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.110.0"
+uvicorn = {extras = ["standard"], version = "^0.27.0"}
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.25"}
+asyncpg = "^0.29.0"
+alembic = "^1.13.1"
+typer = "^0.9.0"
+rich = "^13.7.0"
+python-dotenv = "^1.0.0"
+httpx = "^0.26.0"
+pillow = "^10.2.0"
+openai = "^1.13.3"
+numpy = "^1.26.4"
+
+[tool.poetry.dev-dependencies]
+black = "^24.1.1"
+ruff = "^0.2.2"
+isort = "^5.13.2"
+pytest = "^8.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api" 

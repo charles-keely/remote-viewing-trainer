@@ -1,0 +1,19 @@
+#!/bin/bash
+# Enhanced rv-cli runner script
+
+# Load environment variables
+if [ -f .env ]; then
+  set -a
+  source .env
+  set +a
+fi
+
+# Check for Poetry installation
+if ! command -v poetry &> /dev/null; then
+  echo "Error: Poetry is not installed or not in your PATH"
+  echo "Please install it with: curl -sSL https://install.python-poetry.org | python3 -"
+  exit 1
+fi
+
+# Run the new CLI entry point
+poetry run python -m app.cli "$@"
