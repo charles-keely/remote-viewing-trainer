@@ -6,10 +6,9 @@ A command-line tool for controlled remote viewing training with GPT-V scoring.
 
 Remote viewing is a protocol for perceiving and describing distant or unseen targets using mental perception. This tool helps train controlled remote viewing (CRV) skills by providing:
 
-- Random target generation
-- Session-based remote viewing exercises
+- Random target generation (A random image will be downloaded to /app/data/targets, and a target number will be assigned to this image)
+- Session-based remote viewing exercises that guide you through a Controlled Remote Viewing session through voice prompts. Your answers will be recorded and stored as you say them.
 - AI-powered scoring of remote viewing accuracy
-- Progress tracking
 
 ## Requirements
 
