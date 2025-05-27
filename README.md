@@ -1,13 +1,13 @@
 # rv-cli - Remote Viewing CLI Trainer
 
-A command-line tool for controlled remote viewing training with GPT-V scoring.
+A command line tool that is a voice activated 'remote viewing' trainer and tester.
 
 ## About Remote Viewing
 
 Remote viewing is a protocol for perceiving and describing distant or unseen targets using mental perception. This tool helps train controlled remote viewing (CRV) skills by providing:
 
 - Random target generation (A random image will be downloaded to /app/data/targets, and a target number will be assigned to this image)
-- Session-based remote viewing exercises that guide you through a Controlled Remote Viewing session through voice prompts. Your answers will be recorded and stored as you say them.
+- Session-based remote viewing exercises that guide you through a Controlled Remote Viewing session in 6 steps through voice prompts. Your answers will be recorded and stored as you say them.
 - AI-powered scoring of remote viewing accuracy
 
 ## Requirements
@@ -70,7 +70,7 @@ If you prefer to set things up manually:
    poetry install
    ```
 
-3. Install PostgreSQL (if not already installed):
+3. Install PostgreSQL (required for database storage):
    ```
    # macOS with Homebrew
    brew install postgresql@16
@@ -89,10 +89,9 @@ If you prefer to set things up manually:
    source ~/.zshrc
    ```
 
-5. Create environment file:
+5. Create environment file with your OpenAI API key:
    ```
-   cp .env.example .env
-   # Edit .env with your OpenAI API key
+   echo "OPENAI_API_KEY=your_api_key_here" > .env
    ```
 
 6. Initialize the database:
@@ -110,18 +109,65 @@ make dev
 
 The API will run at http://127.0.0.1:8000
 
-### Run a remote viewing session
+### Run a Voice-Activated Remote Viewing Session (Recommended)
+
+To start a new voice-activated remote viewing session:
+
+```
+make vrun
+```
+
+This will guide you through a complete remote viewing session using voice prompts and speech recognition:
+
+1. **Target Generation**: A random target image is automatically downloaded and assigned a Target Reference Number (TRN)
+2. **Session Creation**: A new session is created and linked to your target
+3. **Voice-Guided Note Collection**: The system will speak prompts and record your verbal responses through the 6 stages of Controlled Remote Viewing
+4. **Automatic Scoring**: Your spoken notes are automatically transcribed and scored against the target image using AI
+5. **Results Display**: View your accuracy scores across different categories
+
+### Alternative: Text-Based Remote Viewing Session
+
+If you prefer to type your notes instead of speaking them:
 
 ```
 ./rv new
 ```
 
-This will:
-1. Generate a random target
-2. Create a new session
-3. Prompt you for notes/impressions
-4. Submit for scoring when you're done
-5. Display results
+This will guide you through a complete remote viewing session via text input:
+
+1. **Target Generation**: A random target image is automatically downloaded and assigned a Target Reference Number (TRN)
+2. **Session Creation**: A new session is created and linked to your target
+3. **Note Collection**: You'll be prompted to enter your impressions/notes:
+   - Type your impressions when prompted with "note (blank = finish)"
+   - Press Enter after each note to save it
+   - Leave blank and press Enter when you're done to finish the session
+4. **Automatic Scoring**: Your notes are automatically scored against the target image using AI
+5. **Results Display**: View your accuracy scores across different categories
+
+**Example session flow:**
+```
+$ ./rv new
+Session 123 – TRN 81751953
+note (blank = finish): blue water
+note (blank = finish): mountainous landscape  
+note (blank = finish): peaceful feeling
+note (blank = finish): [press Enter to finish]
+Finishing session and scoring... (this may take a moment)
+
+Session 123
+Score: 78.5%
+
+Rubric:
+- concept: 85.2%
+- color: 92.1%
+- shape: 65.8%
+- sensory: 71.0%
+
+Notes:
+blue water
+mountainous landscape
+peaceful feeling
+```
 
 ### View a previous session
 
@@ -213,4 +259,4 @@ If you encounter issues with Poetry:
 3. Try reinstalling the project dependencies:
    ```
    poetry install
-   ``` 
+   ```
